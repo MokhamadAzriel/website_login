@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Alumni</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Shafarik&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Form Login -->
+    <div class="login-container">
+      <h1 class="login">Alumni</h1>
+      <form onsubmit="login(event)">
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email atau Nomor Telepon"
+          required
+        />
+
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Kata Sandi"
+          required
+        />
+
+        <button type="submit">Masuk</button>
+      </form>
+      <a href="#" class="forgot-link">Lupa akun atau sandi?</a>
+      <a href="#" class="new-account" onclick="showRegisterForm()"
+        >Buat akun baru</a
+      >
+    </div>
+
+    <!-- Form Registrasi -->
+    <div
+      class="register-container"
+      id="register-container"
+      style="display: none"
+    >
+      <h1>Alumni</h1>
+      <h2>Buat Akun Baru</h2>
+      <form onsubmit="register(event)">
+        <input
+          type="text"
+          id="first-name"
+          name="first-name"
+          placeholder="Nama Depan"
+          required
+        />
+
+        <input
+          type="text"
+          id="last-name"
+          name="last-name"
+          placeholder="Nama Belakang"
+          required
+        />
+
+        <input
+          type="email"
+          id="register-email"
+          name="register-email"
+          placeholder="Email atau Nomor HP"
+          required
+        />
+
+        <input
+          type="password"
+          id="register-password"
+          name="register-password"
+          placeholder="Kata Sandi Baru"
+          required
+        />
+
+        <input
+          type="text"
+          id="school"
+          name="school"
+          placeholder="Alumni Sekolah"
+          required
+        />
+
+        <input
+          type="number"
+          id="graduation-year"
+          name="graduation-year"
+          placeholder="Lulusan Tahun"
+          min="1900"
+          max="2025"
+          required
+        />
+
+        <button type="submit">Daftar</button>
+      </form>
+      <a href="#" class="back-to-login" onclick="showLoginForm()"
+        >Sudah memiliki akun?</a
+      >
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Alumni</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Selamat Datang di Dashboard Alumni</h1>
+    <p id="welcome-text">Memuat data...</p>
+    <!-- Tambahkan elemen ini -->
+    <button onclick="logout()">Logout</button>
+
+    <script>
+      function loadUserData() {
+        var userEmail = localStorage.getItem("loggedInUser"); // Ambil email pengguna yang login
+
+        if (!userEmail) {
+          alert("Anda belum login! Silakan login terlebih dahulu.");
+          window.location.href = "index.html"; // Redirect ke login
+          return;
+        }
+
+        var userData = localStorage.getItem(userEmail); // Ambil data user berdasarkan email
+        if (!userData) {
+          alert("Data tidak ditemukan! Silakan login ulang.");
+          window.location.href = "index.html";
+          return;
+        }
+
+        var user = JSON.parse(userData);
+
+        // Pastikan elemen HTML ditemukan sebelum diakses
+        var welcomeText = document.getElementById("welcome-text");
+        if (welcomeText) {
+          welcomeText.innerText = "Selamat Datang, " + user.firstName + "!";
+        } else {
+          console.error("Elemen dengan ID 'welcome-text' tidak ditemukan.");
+        }
+      }
+
+      function logout() {
+        localStorage.removeItem("isLoggedIn");
+        localStorage.removeItem("loggedInUser");
+        alert("Anda telah logout.");
+        window.location.href = "index.html"; // Redirect ke halaman login
+      }
+
+      // Panggil fungsi ini saat halaman dimuat
+      window.onload = loadUserData;
+    </script>
+  </body>
+</html>
